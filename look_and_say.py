@@ -8,11 +8,13 @@ def segundoMembro(number):
 def terceiroMembro(number):
 	segundo_membro = segundoMembro(number)
 	number2 = list(str(segundo_membro))
+	number3 = ''
 	
 	for digito in number2:
-		print(number2[number2.index(digito)])
+		if digito != number2[number2.index(digito)+1]:
+			number3 = number3 + ('1'+number2[number2.index(digito)])
 
-	return number2
+	return number3
 
 
 def main():
