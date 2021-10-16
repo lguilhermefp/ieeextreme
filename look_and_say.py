@@ -8,6 +8,10 @@ def segundoMembro(number):
 def terceiroMembro(number):
 	segundo_membro = segundoMembro(number)
 	number2 = list(str(segundo_membro))
+	
+	for digito in number2:
+		print(number2[number2.index(digito)])
+
 	return number2
 
 
