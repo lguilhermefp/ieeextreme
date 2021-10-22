@@ -4,7 +4,7 @@ def segundoMembro(number):
 
 
 def terceiroMembro(number):
-	segundo_membro = segundoMembro(number)
+	segundo_membro = membroSeguinteAo(number)
 	number2 = list(str(segundo_membro))
 	number3 = ''
 	
@@ -36,8 +36,24 @@ def quartoMembro(number):
 	return number4
 
 
-def program(number):
-	pass
+def membroSeguinteAo(number):
+	numberToArray = list(str(number))
+	membroSeguinte = ''
+	i=0
+
+	while(i < len(numberToArray)):
+		if i+1 < len(numberToArray):
+			quantidadeEmSequencia = quantidadeDeTermosEmSequencia(i, numberToArray)
+			if(termoIgualAoProximo(i, numberToArray)):
+				membroSeguinte = membroSeguinte + (str(quantidadeEmSequencia)+numberToArray[i])
+				i = i+quantidadeEmSequencia-1
+			else:
+				membroSeguinte = membroSeguinte + ('1'+numberToArray[i])
+		else:
+			membroSeguinte = membroSeguinte + ('1'+numberToArray[i])
+		i = i+1
+
+	return membroSeguinte
 
 
 def termoIgualAoProximo(index, array):
@@ -59,7 +75,9 @@ def quantidadeDeTermosEmSequencia(index, array):
 
 def main():
 	print(segundoMembro(3))
+	print(membroSeguinteAo(3))
 	print(terceiroMembro(3))
+	print(membroSeguinteAo(13))
 	print(quartoMembro(3))
 
 if __name__ == "__main__":
