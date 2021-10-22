@@ -1,5 +1,3 @@
-import numpy as np
-
 def segundoMembro(number):
 	number2 = '1'+str(number)
 	return number2
@@ -24,9 +22,11 @@ def quartoMembro(number):
 
 	while(i < len(number3)):
 		if i+1 < len(number3):
+			quantidadeEmSequencia = quantidadeDeTermosEmSequencia(i, number3)
+			print(quantidadeEmSequencia)
 			if(termoIgualAoProximo(i, number3)):
-				number4 = number4 + ('2'+number3[i])
-				i = i+1
+				number4 = number4 + (str(quantidadeEmSequencia)+number3[i])
+				i = i+quantidadeEmSequencia-1
 			else:
 				number4 = number4 + ('1'+number3[i])
 		else:
@@ -36,6 +36,10 @@ def quartoMembro(number):
 	return number4
 
 
+def program(number):
+	pass
+
+
 def termoIgualAoProximo(index, array):
 	if array[index] == array[index+1]:
 		return True
@@ -43,9 +47,9 @@ def termoIgualAoProximo(index, array):
 
 def quantidadeDeTermosEmSequencia(index, array):
 	amount = 1
-	valueToWatch = array[index]
+	valueToAnalize = array[index]
 	while index+1 < len(array):
-		if valueToWatch == array[index+1]:
+		if valueToAnalize == array[index+1]:
 			amount += 1
 			index += 1
 		else:
@@ -57,8 +61,6 @@ def main():
 	print(segundoMembro(3))
 	print(terceiroMembro(3))
 	print(quartoMembro(3))
-	
-	print(quantidadeDeTermosEmSequencia(2, ['1', '1', '1', '1', '2']))
 
 if __name__ == "__main__":
 	main()
