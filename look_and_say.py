@@ -42,7 +42,15 @@ def termoIgualAoProximo(index, array):
 
 
 def quantidadeDeTermosEmSequencia(index, array):
-	pass
+	amount = 1
+	valueToWatch = array[index]
+	while index+1 < len(array):
+		if valueToWatch == array[index+1]:
+			amount += 1
+			index += 1
+		else:
+			break
+	return amount
 
 
 def main():
@@ -50,6 +58,7 @@ def main():
 	print(terceiroMembro(3))
 	print(quartoMembro(3))
 	
+	print(quantidadeDeTermosEmSequencia(2, ['1', '1', '1', '1', '2']))
 
 if __name__ == "__main__":
 	main()
