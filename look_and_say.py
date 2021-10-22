@@ -21,17 +21,10 @@ def quartoMembro(number):
 	number3 = list(terceiro_membro)
 	number4 = ''
 	i=0
-	# for digito in number3:
-	# 	print(len(number3))
-	# 	if number3.index(digito)+1 < len(number3):
-	# 		if digito == number3[number3.index(digito)+1]:
-	# 			number4 = number4 + ('2'+number3[number3.index(digito)])
-	# 		else:
-	# 			number4 = number4 + ('1'+number3[number3.index(digito)])
 
 	while(i < len(number3)):
 		if i+1 < len(number3):
-			if number3[i] == number3[i+1]:
+			if(termoIgualAoProximo(i, number3)):
 				number4 = number4 + ('2'+number3[i])
 				i = i+1
 			else:
@@ -41,6 +34,15 @@ def quartoMembro(number):
 		i = i+1
 
 	return number4
+
+
+def termoIgualAoProximo(index, array):
+	if array[index] == array[index+1]:
+		return True
+
+
+def quantidadeDeTermosEmSequencia(index, array):
+	pass
 
 
 def main():
