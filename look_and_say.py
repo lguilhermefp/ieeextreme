@@ -20,13 +20,25 @@ def quartoMembro(number):
 	terceiro_membro = terceiroMembro(number)
 	number3 = list(terceiro_membro)
 	number4 = ''
-	for digito in number3:
-		print(len(number3))
-		if number3.index(digito)+1 < len(number3):
-			if digito == number3[number3.index(digito)+1]:
-				number4 = number4 + ('2'+number3[number3.index(digito)])
+	i=0
+	# for digito in number3:
+	# 	print(len(number3))
+	# 	if number3.index(digito)+1 < len(number3):
+	# 		if digito == number3[number3.index(digito)+1]:
+	# 			number4 = number4 + ('2'+number3[number3.index(digito)])
+	# 		else:
+	# 			number4 = number4 + ('1'+number3[number3.index(digito)])
+
+	while(i < len(number3)):
+		if i+1 < len(number3):
+			if number3[i] == number3[i+1]:
+				number4 = number4 + ('2'+number3[i])
+				i = i+1
 			else:
-				number4 = number4 + ('1'+number3[number3.index(digito)])
+				number4 = number4 + ('1'+number3[i])
+		else:
+			number4 = number4 + ('1'+number3[i])
+		i = i+1
 
 	return number4
 
