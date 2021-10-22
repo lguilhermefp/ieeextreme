@@ -11,15 +11,14 @@ def terceiroMembro(number):
 	number3 = ''
 	
 	for digito in number2:
-		if digito != number2[number2.index(digito)+1]:
-			number3 = number3 + ('1'+number2[number2.index(digito)])
+		number3 = number3 + ('1'+number2[number2.index(digito)])
 
 	return number3
 
 
 def main():
-	print(segundoMembro(2))
-	print(terceiroMembro(2))
+	print(segundoMembro(3))
+	print(terceiroMembro(3))
 	
 
 if __name__ == "__main__":
