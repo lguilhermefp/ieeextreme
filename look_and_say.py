@@ -1,41 +1,3 @@
-def segundoMembro(number):
-	number2 = '1'+str(number)
-	return number2
-
-
-def terceiroMembro(number):
-	segundo_membro = membroSeguinteAo(number)
-	number2 = list(str(segundo_membro))
-	number3 = ''
-	
-	for digito in number2:
-		number3 = number3 + ('1'+number2[number2.index(digito)])
-
-	return number3
-
-
-def quartoMembro(number):
-	terceiro_membro = terceiroMembro(number)
-	number3 = list(terceiro_membro)
-	number4 = ''
-	i=0
-
-	while(i < len(number3)):
-		if i+1 < len(number3):
-			quantidadeEmSequencia = quantidadeDeTermosEmSequencia(i, number3)
-			print(quantidadeEmSequencia)
-			if(termoIgualAoProximo(i, number3)):
-				number4 = number4 + (str(quantidadeEmSequencia)+number3[i])
-				i = i+quantidadeEmSequencia-1
-			else:
-				number4 = number4 + ('1'+number3[i])
-		else:
-			number4 = number4 + ('1'+number3[i])
-		i = i+1
-
-	return number4
-
-
 def membroSeguinteAo(number):
 	numberToArray = list(str(number))
 	membroSeguinte = ''
@@ -73,12 +35,23 @@ def quantidadeDeTermosEmSequencia(index, array):
 	return amount
 
 
+def sequencia(number, size):
+	i=0
+	while(i<size):
+		# print(number)
+		number = membroSeguinteAo(number)
+		i += 1
+	print(number)
+
+
+def membroN(number):
+	sequencia(number, number)
+
+
 def main():
-	print(segundoMembro(3))
-	print(membroSeguinteAo(3))
-	print(terceiroMembro(3))
-	print(membroSeguinteAo(13))
-	print(quartoMembro(3))
+	number = int(input())
+	membroN(number)
+
 
 if __name__ == "__main__":
 	main()
